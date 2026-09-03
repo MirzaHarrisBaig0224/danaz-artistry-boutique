@@ -78,7 +78,7 @@ function PageBody() {
           <Reveal className="relative">
             <Doodle className="float-slow -left-6 -top-6 text-2xl text-primary/50">✿</Doodle>
             <Doodle className="float-slower right-8 top-0 text-xl text-olive/50">✦</Doodle>
-            <span className="font-script text-2xl text-primary">handmade with love</span>
+            <span className="font-script text-2xl text-primary">handmade with care</span>
             <h1 className="mt-3 font-display text-5xl leading-[1.05] sm:text-6xl">
               Little Things,
               <br />
@@ -167,11 +167,10 @@ function PageBody() {
                 <button
                   key={c}
                   onClick={() => setFilter(c)}
-                  className={`rounded-full border px-5 py-2 text-xs tracking-wide transition-all duration-300 ${
-                    filter === c
-                      ? "border-primary bg-primary text-primary-foreground shadow-soft"
-                      : "border-border bg-card/70 text-foreground/70 hover:border-primary/40 hover:text-primary"
-                  }`}
+                  className={`rounded-full border px-5 py-2 text-xs tracking-wide transition-all duration-300 ${filter === c
+                    ? "border-primary bg-primary text-primary-foreground shadow-soft"
+                    : "border-border bg-card/70 text-foreground/70 hover:border-primary/40 hover:text-primary"
+                    }`}
                 >
                   {c}
                 </button>
