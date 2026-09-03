@@ -157,16 +157,19 @@ export function ShopProvider({ children }: { children: ReactNode }) {
   const [favorites, setFavorites] = useState<string[]>([]);
   const [bump, setBump] = useState(0);
 
-  const addToCart = useCallback((product: Product, qty = 1, variant = product.variants[0]) => {
+  const addToCart = useCallback((product: Product, qty = 1, variantArg?: string) => {
+    const variant = variantArg ?? product.variants[0] ?? "Standard";
     setLines((prev) => {
       const idx = prev.findIndex((l) => l.product.id === product.id && l.variant === variant);
       if (idx >= 0) {
-        const next = [...prev];
-        next[idx] = { ...next[idx], qty: next[idx].qty + qty };
+        const next = prev.slice();
+        const line = next[idx]!;
+        next[idx] = { ...line, qty: line.qty + qty };
         return next;
       }
       return [...prev, { product, qty, variant }];
     });
+
     setBump((b) => b + 1);
   }, []);
 
